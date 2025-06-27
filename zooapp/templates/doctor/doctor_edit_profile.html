@@ -1,0 +1,55 @@
+{% extends 'doctor/doctor_home.html' %}
+{% block body %}
+<div class="container" style="padding-top: 50px;">
+    <div class="d-flex flex-column text-center mb-5 pt-5">
+        <h1 class="display-4 m-0">Edit <span class="text-primary">Profile</span></h1>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-12 col-sm-8 mb-5">
+            <div class="contact-form">
+                <div id="success"></div>
+                <form action="/doctor_edit_profile/" method="post">
+                    {% csrf_token %}
+                    <table border="0" class="table">
+                        {% for x in var %}
+                        <tr>
+                            <th>Name</th>
+                            <td>: {{ x.name }}</td>
+                        </tr>
+                        <tr>
+                            <th>Street</th>
+                            <td>: <input type="text" name="street" value="{{ x.street }}" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <th>City</th>
+                            <td>: <input type="text" name="city" value="{{ x.city }}" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <th>Pin</th>
+                            <td>: <input type="text" name="pin" value="{{ x.pin }}" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <th>Phone</th>
+                            <td>: <input type="text" name="phone" value="{{ x.phone }}" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <th>Email</th>
+                            <td>: <input type="text" name="email" value="{{ x.email }}" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <th>Password</th>
+                            <td>: <input type="text" name="pswd" value="{{ x.pswd }}" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <input type="submit" name="btn" class="btn btn-success" value="Update">
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

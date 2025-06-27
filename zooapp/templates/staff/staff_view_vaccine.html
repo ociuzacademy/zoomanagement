@@ -1,0 +1,40 @@
+{% extends 'staff/staff_home.html' %}
+{% block body %}
+<div class="container" style="padding-top: 50px;">
+	
+<div class="d-flex flex-column text-center mb-5 pt-5">
+        <h1 class="display-4 m-0">View <span class="text-primary">Vaccine</span></h1>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-10 mb-10">
+                <div class="contact-form">
+                    <div id="success"></div>
+                    <table border="0" class="table">
+                    	<tr>
+                         <th>Vaccine Name</th> 
+                         <th>Vaccine Date</th>
+                         <th>Discription</th>   
+                         <th>Animal Details</th>  
+                         <th>Status</th>   
+                         <th></th>
+                        </tr>
+
+                        {% for x in var %}
+
+                        <tr>
+                            <td>{{x.v_name}}</td>
+                            <td>{{x.v_date}}</td>
+                            <td>{{x.discription}}</td>
+                            <td>{{x.animal_id.id}},{{x.animal_id.name}}<br>{{x.animal_id.category}}</td>
+                            <td>{{x.status}}</td>
+                            <td><a href="//?id={{x.id}}" class="btn btn-success">Remove</a></td>
+
+                        </tr>
+                    	{% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

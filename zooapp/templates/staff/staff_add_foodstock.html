@@ -1,0 +1,50 @@
+{% extends 'staff/staff_home.html' %}
+{% block body %}
+
+<div class="d-flex flex-column text-center mb-5 pt-5">
+    <!-- <h4 class="text-secondary mb-3">Register form</h4> -->
+   <h1 class="display-4 m-0">Add<span class="text-primary"> Food Stock..</span></h1>
+</div>
+ <div class="row justify-content-center">
+    <div class="col-12 col-sm-8 mb-5">
+    <div class="contact-form">
+    <div id="success"></div>
+
+    <form action="/staff_add_foodstock/" method="post" id="contactForm" novalidate="novalidate">
+    	{% csrf_token %}
+
+         <div class="control-group">
+        <input type="text" class="form-control p-4" name="name" placeholder="Food Name" required="required" />
+            <p class="help-block text-danger"></p>
+        </div>
+
+         <div class="control-group">
+        <input type="text" class="form-control p-4" name="qty" placeholder="Quantity" required="required" />
+            <p class="help-block text-danger"></p>
+        </div>
+
+         <div class="control-group">
+        <input type="text" class="form-control p-4" name="cat" placeholder="Food Category" required="required" />
+            <p class="help-block text-danger"></p>
+        </div>
+
+         <div class="control-group">
+        <input type="text" class="form-control p-4" name="stock" placeholder="Food Stock(No. Of packets)" required="required" />
+            <p class="help-block text-danger"></p>
+        </div>
+
+        <div class="control-group">
+        <input type="date" class="form-control p-4" name="date" placeholder="Date" required="required" />
+        <p class="help-block text-danger"></p>
+        </div>
+  
+
+        <div>
+         <button class="btn btn-primary py-3 px-5" type="submit">Submit Now</button>
+        </div>
+        </form>
+                </div>
+            </div>
+        </div>
+
+{% endblock %}

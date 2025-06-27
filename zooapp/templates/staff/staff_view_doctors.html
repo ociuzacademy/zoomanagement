@@ -1,0 +1,38 @@
+{% extends 'staff/staff_home.html' %}
+{% block body %}
+<div class="container" style="padding-top: 50px;">
+	
+<div class="d-flex flex-column text-center mb-5 pt-5">
+        <h1 class="display-4 m-0">All <span class="text-primary">Doctors</span></h1>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-8 mb-5">
+                <div class="contact-form">
+                    <div id="success"></div>
+                    <table border="0" class="table">
+                    	<tr>
+                         <th>Name</th> 
+                         <th>Address</th>
+                         <th>Phone</th>   
+                         <th>Email</th>  
+                         <th></th>   
+                        </tr>
+
+                        {% for x in var %}
+
+                        <tr>
+                            <td>{{x.name}}</td>
+                            <td>{{x.address}}</td>
+                            <td>{{x.phone}}</td>
+                            <td>{{x.email}}</td>
+                            <td><a href="/staff_doctor_appoinment/?id={{x.id}}" class="btn btn-success">Select</a></td>
+
+                        </tr>
+                    	{% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

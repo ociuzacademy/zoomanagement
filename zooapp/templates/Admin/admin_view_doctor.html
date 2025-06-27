@@ -1,0 +1,40 @@
+{% extends 'Admin/admin_home.html' %}
+{% block body %}
+<style type="text/css">
+	th{
+		background-color: #ff6600;
+		color: white;
+	}
+</style>
+<div class="d-flex flex-column text-center mb-5 pt-5">
+    <h1 class="display-4 m-0">View <span class="text-primary">Doctor</span></h1>
+        </div>
+<div class="container" style="padding-top: 50px;">
+	
+<table border="1" class="table">
+                <tr>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <!-- <th>Status</th> -->
+
+
+                </tr>
+                {% for x in var %}
+                <tr>
+                    <td>{{x.name}}</td>
+                    <td>{{x.street}}<br>{{x.city}}<br>{{x.pin}}</td>
+                    <td>{{x.phone}}</td>
+                    <td>{{x.email}}</td>
+                    <td>{{x.pswd}}</td>
+                    
+
+
+                </tr>
+                {% endfor %}
+            </table>
+</div>
+
+{% endblock %}

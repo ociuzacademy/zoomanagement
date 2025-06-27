@@ -1,0 +1,41 @@
+{% extends 'Admin/admin_home.html' %}
+{% block body %}
+<style type="text/css">
+	th{
+		background-color: #ff6600;
+		color: white;
+	}
+</style>
+<div class="d-flex flex-column text-center mb-5 pt-5">
+    <h1 class="display-4 m-0">View <span class="text-primary">Leave Request</span></h1>
+        </div>
+<div class="container" style="padding-top: 50px;">
+	
+<table border="1" class="table">
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Reason</th>
+                    <th>Date</th>
+                    <th>Status</th>
+
+                    <th></th>
+                    
+                </tr>
+                {% for x in var %}
+                <tr>
+                    <td>{{x.user_id.name}}</td>
+                    <td>{{x.user_id.email}}</td>
+                    <td>{{x.reason}}</td>
+                    <td>{{x.date}}</td>
+                    <td>{{x.status}}</td>
+
+                    <td><a href="/admin_approve_leave/?id={{x.id}}" class="btn btn-success">Approve</a>
+                        <a href="/admin_reject_leave/?id={{x.id}}" class="btn btn-danger">Reject</a></td>
+                    
+                </tr>
+                {% endfor %}
+            </table>
+</div>
+
+{% endblock %}

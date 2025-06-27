@@ -1,0 +1,68 @@
+{% extends 'Admin/admin_home.html' %}
+{% block body %}
+<style type="text/css">
+	th{
+		background-color: #ff6600;
+		color: white;
+	}
+</style>
+<div class="container" style="padding-top: 50px;">
+	
+<div class="d-flex flex-column text-center mb-5 pt-5">
+            <h1 class="display-4 m-0">Add <span class="text-primary">Animal Details</span></h1>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-8 mb-5">
+                <div class="contact-form">
+                    <div id="success"></div>
+
+        <form action="/admin_add_animal/" method="post">
+        {% csrf_token %}
+        <div class="control-group">
+        <input type="text" class="form-control p-4" name="name" placeholder="Animal Name" required="required" pattern="[A-Za-z\s]{1,32}" maxlength="32" />
+            <p class="help-block text-danger"></p>
+        </div>
+        <div class="control-group">
+        <input type="text" class="form-control p-4" name="category" placeholder="Category" required="required" pattern="[A-Za-z\s]{1,32}" maxlength="32"/>
+            <p class="help-block text-danger"></p>
+        </div>
+        <div class="control-group">
+        <input type="text" class="form-control p-4" name="scientific_name" placeholder="Scientific Name" required="required" pattern="[A-Za-z\s]{1,32}" maxlength="32"/>
+            <p class="help-block text-danger"></p>
+        </div>
+        <div class="control-group">
+        <input type="text" class="form-control p-4" name="life_span" placeholder="life span" required="required" maxlength="" />
+            <p class="help-block text-danger"></p>
+        </div>
+        <div class="control-group">
+        <input type="text" class="form-control p-4" name="age" placeholder="Age" required="required" pattern="[0-9]{1,2}" maxlength="2" />
+            <p class="help-block text-danger"></p>
+        </div>
+        <div class="control-group">
+        <input type="text" class="form-control p-4" name="food" placeholder="Food Details" required="required"  maxlength=""/>
+            <p class="help-block text-danger"></p>
+        </div>
+        <div class="control-group">
+        <input type="text" class="form-control p-4" name="vaccination" placeholder="Vaccination Details" required="required"  maxlength=""/>
+            <p class="help-block text-danger"></p>
+        </div>
+        <div class="control-group">
+        <input type="text" class="form-control p-4" name="medical_history" placeholder="Medical History" required="required" maxlength="50"/>
+            <p class="help-block text-danger"></p>
+        </div>
+
+        
+
+        
+
+        <div>
+         <button class="btn btn-primary py-3 px-5" type="submit" id="sendMessageButton">Add Now</button>
+        </div>
+        </form>
+                </div>
+            </div>
+           
+        </div>
+</div>
+
+{% endblock %}

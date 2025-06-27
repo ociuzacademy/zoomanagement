@@ -1,0 +1,39 @@
+{% extends 'doctor/doctor_home.html' %}
+{% block body %}
+<style type="text/css">
+	th{
+		background-color: #ff6600;
+		color: white;
+	}
+</style>
+<div class="d-flex flex-column text-center mb-5 pt-5">
+    <h1 class="display-4 m-0">View <span class="text-primary"> Notifications</span></h1>
+        </div>
+<div class="container" style="padding-top: 50px;">
+	
+<table border="1" class="table">
+               <tr>
+                         <th>Vaccine Name</th> 
+                         <th>Vaccine Date</th>
+                         <th>Discription</th>   
+                         <th>Animal Details</th>  
+                         <!-- <th>Status</th>    -->
+                         <!-- <th></th> -->
+                        </tr>
+
+                        {% for x in var %}
+
+                        <tr>
+                            <td>{{x.v_name}}</td>
+                            <td>{{x.v_date}}</td>
+                            <td>{{x.discription}}</td>
+                            <td>{{x.animal_id.id}},{{x.animal_id.name}}<br>{{x.animal_id.category}}</td>
+                            <!-- <td>{{x.status}}</td> -->
+                           <!--  <td><a href="//?id={{x.id}}" class="btn btn-success">Remove</a></td> -->
+
+                        </tr>
+                {% endfor %}
+            </table>
+</div>
+
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends 'staff/staff_home.html' %}
+{% block body %}
+<div class="container" style="padding-top: 50px;">
+	
+<div class="d-flex flex-column text-center mb-5 pt-5">
+        <h1 class="display-4 m-0">Doctor <span class="text-primary">Appoinment</span></h1>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-8 mb-5">
+                <div class="contact-form">
+                    <div id="success"></div>
+
+                     <div class="bg-primary py-5 px-4 px-sm-5">
+                        <form action="/staff_doctor_appoinment/" method="post" class="py-5">
+                            {% csrf_token %}
+                           <input type="text" name="id" hidden value="{{idd}}">
+                           
+                            {% for x in var %}
+                            <!-- <div class="form-group">
+                            <input type="text" name="name" class="form-control border-0 p-4" value="{{x.name}}" required="required" />
+                            </div> -->
+
+                            <div class="form-group">
+                            <input type="text" name="email" class="form-control border-0 p-4" value="{{x.email}}" required="required" />
+                            </div>
+                            {% endfor %}
+
+                            <div class="form-group">
+                            <div class="date" id="date" data-target-input="nearest">
+                            <input type="date" name="date" class="form-control border-0 p-4 datetimepicker-input" placeholder="Reservation Date" data-target="#date" data-toggle="datetimepicker"/>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                            <div class="time" id="time" data-target-input="nearest">
+                            <input type="time" name="time" class="form-control border-0 p-4 datetimepicker-input" placeholder="Reservation Time" data-target="#time" data-toggle="datetimepicker"/>
+                                </div>
+                            </div>
+
+                           <!--  <div class="form-group">
+                            <input type="text" name="animal" class="form-control border-0 p-4" placeholder=" Animal" required="required" />
+                            </div> -->
+
+                            <div class="form-group">
+                            <select name="animal" class="custom-select border-0 px-4" style="height: 47px;">
+                            <option selected disabled="">Animal List</option>
+                            {% for x in var2 %}
+                            <option value="{{x.id}}">AN{{x.id}},{{x.name}}</option>
+                            {% endfor %}
+
+                                </select>
+                            </div>
+                            <div>
+                                <button class="btn btn-dark btn-block border-0 py-3" type="submit">Book Now</button>
+                            </div>
+                        </form>
+                    </div>
+                  
+                        
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

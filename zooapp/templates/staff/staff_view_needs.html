@@ -1,0 +1,45 @@
+{% extends 'staff/staff_home.html' %}
+{% block body %}
+<div class="container" style="padding-top: 50px;">
+	
+<div class="d-flex flex-column text-center mb-5 pt-5">
+        <h1 class="display-4 m-0">View <span class="text-primary">Needs</span></h1>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-8 mb-5">
+                <div class="contact-form">
+                    <div id="success"></div>
+                    <table border="0" class="table">
+                    	<tr>
+                         <th>Needs</th> 
+                         <th>Quantity</th>
+                         <th>Date</th>
+                         <th>Food Details</th>   
+
+                         <th>Staff Name</th>  
+                         <th>Status</th>   
+                         
+                        </tr>
+
+                        {% for x in var %}
+
+                        <tr>
+                            <td>{{x.needs}}</td>
+                            <td>{{x.food_qty}}</td>
+                            <td>{{x.date}}</td>
+                            <td>{{x.food_id.id}},{{x.food_id.food_name}}
+                                <br>{{x.food_id.food_category}}</td>
+
+                            <td>{{x.staff_id.name}}</td>
+                            <td>{{x.status}}</td>
+                            
+
+                        </tr>
+                    	{% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

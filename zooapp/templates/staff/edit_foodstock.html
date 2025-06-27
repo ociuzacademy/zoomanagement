@@ -1,0 +1,44 @@
+{% extends 'staff/staff_home.html' %}
+{% block body %}
+<div class="container" style="padding-top: 50px;">
+	
+<div class="d-flex flex-column text-center mb-5 pt-5">
+        <h1 class="display-4 m-0">Edit <span class="text-primary">Food Stock</span></h1>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-8 mb-5">
+                <div class="contact-form">
+                    <div id="success"></div>
+
+                    <form action="/staff_edit_foodstock/" method="post">
+                        {% csrf_token %}
+
+                        <!-- <input type="text" name="id" hidden value="{{x.ii}}"> -->
+                        <input type="text" name="id" hidden value="{{idd}}">
+
+                    <table border="0" class="table">
+                    	{% for x in var %}
+                    	<tr>
+                    		<th>Food Name</th><td>:{{x.food_name}}</td></tr>
+                            <tr>
+                            <th>Food Category</th><td>:{{x.food_category}}</td></tr>
+                    		<tr>
+                    		<th>Qty</th><td>:<input type="text" name="qty" value="{{x.food_qty}}" class="form-control">
+                            </td></tr>
+                    		<tr>
+                    		<th>No. of Packets</th><td>:<input type="text" name="stock" value="{{x.stock}}" class="form-control"></td></tr>
+                            <tr>
+                            <th>Date</th><td>:<input type="text" name="date" value="{{x.date}}" class="form-control"></td></tr>
+                    		
+                    		
+                        <tr><td colspan="2"><input type="submit" name="btn" class="btn btn-success" value="Update"></td></tr>
+                        {% endfor %}
+                    </table>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

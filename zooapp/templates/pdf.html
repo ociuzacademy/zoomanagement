@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Preview</title>
+    <style type="text/css">
+        body{
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+        }
+        .tble_to_left{
+            width: 50%;
+            table-layout: fixed;
+        }
+        .tble_to_right{
+            width: 80%;
+            table-layout: fixed;
+        }
+        .tbl_desc_inv{
+            margin-top: 40px; 
+        }
+        .main_in_tbl{
+             border: 0px solid #ddd;
+        }
+        /* .main_in_tbl tr{
+            border:1px solid #ddd;
+         }*/
+        .main_in_tbl thead tr th{
+        border-bottom:0px solid #ddd;
+        border-right:0px solid #ddd;
+        padding: 5px;
+        }
+        .main_in_tbl tbody tr td{
+        /*border-bottom:1px solid #ddd;*/
+        border-right:0px solid #ddd;
+        padding: 10px;
+        color: #555;
+        }
+        td{
+            font-size: 25px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <div>
+        <!-- <div style="margin: auto;text-align: center;margin-top: 70px;background: #fed55f;
+    padding: 20px 0;width: 80%;"> -->
+            <!-- <img src="../static/assets/images/logo.png" alt="homepage" class="light-logo" width="100" /> -->
+        <!-- </div> -->
+    </div>
+    <!-- <div class="back_btn">
+                    <a href="/view_completed_work/"><button class="bck_btn">Go Back</i></button></a>
+                </div> -->
+    <div style="width:100%;height:100px;display: block;margin-top:50px;">
+        {% for x in var %}
+
+       <div class="container">
+         <div style="width:50%;float: left;">
+         <h3 style="font-size: 25px;"><center>Zoo Ticket</center></h3>
+            <table class="table tble_to_left" border="0" >
+                
+                {% for x in var %}
+                <tr>
+                    <td>Name</td>
+                    <td>:{{x.name}}</td>                  
+                </tr> 
+                 <tr>
+                    <td>Email</td>
+                    <td>:{{x.email}}</td>
+                </tr> 
+                 <tr>
+                    <td>Date</td>
+                    <td>:{{x.date}}</td>
+                </tr>    
+                 <tr>
+                    <td>Time</td>
+                    <td>:{{x.time}}</td>
+                </tr>    
+                  <tr>
+                    <td>Category</td>
+                    <td>:{{x.age_cat}}</td>
+                </tr> 
+                  <tr>
+                    <td>No.Of people</td>
+                    <td>:{{x.count}}</td>
+                </tr> 
+                <tr>
+                    <td>Total Price</td>
+                    <td>:{{x.price}}/~</td>
+                </tr> 
+                <tr>
+                    <td>Ticket Number</td>
+                    <td>:TK{{x.ticket_no}}</td>
+                </tr> 
+                
+                {% endfor %}      
+
+            </table>
+        </div>
+        
+       </div>
+       {% endfor %}
+    </div>
+
+    
+
+    <div class="container">
+        <div style="width: 90%;">
+            <p style="text-align: right;font-weight: 600;color:#0f62a5;"></p>
+        </div>
+    </div>
+
+</body>
+
+</html>

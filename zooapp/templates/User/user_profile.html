@@ -1,0 +1,43 @@
+{% extends 'User/user_home.html' %}
+{% block body %}
+<div class="container" style="padding-top: 50px;">
+	
+<div class="d-flex flex-column text-center mb-5 pt-5">
+            <h1 class="display-4 m-0">My <span class="text-primary">Profile</span></h1>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-8 mb-5">
+                <div class="contact-form">
+                    <div id="success"></div>
+
+        <table>
+        	{% for x in var %}
+        	<tr>
+        		<th>Name:</th><td>{{x.name}}</td>
+        	</tr>
+        	<tr>
+        		<th>City:</th><td>{{x.city}}</td>
+        	</tr>
+        	<tr>
+        		<th>Street:</th><td>{{x.street}}</td>
+        	</tr>
+        	<tr>
+        		<th>Pin:</th><td>{{x.pin}}</td>
+        	</tr>
+        	<tr>
+        		<th>Phone:</th><td>{{x.phone}}</td>
+        	</tr>
+        	<tr>
+        		<th>Email:</th><td>{{x.email}}</td>
+        	</tr>
+        	<tr>
+        		<th>Password:</th><td>{{x.pswd}}</td>
+        	</tr>
+        	{% endfor %}
+        </table>
+                </div>
+            </div>
+           
+        </div>
+</div>
+{% endblock %}

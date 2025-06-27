@@ -1,0 +1,69 @@
+{% extends 'Admin/admin_home.html' %}
+{% block body %}
+<style type="text/css">
+	th{
+		background-color: #ff6600;
+		color: white;
+	}
+</style>
+<div class="container" style="padding-top: 50px;">
+	
+<table border="1" class="table">
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Age Category</th>
+                    <th>Ticket No</th>
+                    <!-- <th>Status</th> -->
+                    <th></th>
+
+                </tr>
+                {% for x in var %}
+                <tr>
+                    <td>{{x.name}}</td>
+                    <td>{{x.email}}</td>
+                    <td>{{x.date}}</td>
+                    <td>{{x.time}}</td>
+                    <td>{{x.age_cat}}</td>
+                    <td>TK{{x.ticket_no}}</td>
+                    <!-- <td>{{x.status}}</td> -->
+                    <td><a href="/admin_remove_booking/?id={{x.id}}" class="btn btn-success">Remove</a></td>
+                    <!-- <td><a href="/admin_checked_booking/?id={{x.id}}" class="btn btn-success">Checked</a></td> -->
+
+
+                </tr>
+                {% endfor %}
+            </table>
+
+            <br>
+            <h1>Cancelled Booking</h1>
+            <table border="1" class="table">
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Age Category</th>
+                    <th>Ticket No</th>
+                    <th>Status</th>
+                    <th></th>
+                </tr>
+                {% for x in var2 %}
+                <tr>
+                    <td>{{x.name}}</td>
+                    <td>{{x.email}}</td>
+                    <td>{{x.date}}</td>
+                    <td>{{x.time}}</td>
+                    <td>{{x.age_cat}}</td>
+                    <td>TK{{x.ticket_no}}</td>
+                    <td>{{x.status}}</td>
+                    <td><a href="/admin_remove_booking/?id={{x.id}}" class="btn btn-success">Remove</a></td>
+
+                </tr>
+                {% endfor %}
+            </table>
+</div>
+
+{% endblock %}

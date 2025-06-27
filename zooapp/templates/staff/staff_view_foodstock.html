@@ -1,0 +1,44 @@
+{% extends 'staff/staff_home.html' %}
+{% block body %}
+<div class="container" style="padding-top: 50px;">
+	
+<div class="d-flex flex-column text-center mb-5 pt-5">
+        <h1 class="display-4 m-0">Food <span class="text-primary">Stock List</span></h1>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-8 mb-5">
+                <div class="contact-form">
+                    <div id="success"></div>
+                    <table border="0" class="table">
+                    	<tr>
+                         <th>Food Name</th> 
+                         <th>Quantity</th>
+                         <th>Category</th>
+                         <th>Stock(No. Of packets)</th>
+                         <th>Date</th>   
+                         <th>Staff Name</th>  
+                         <th></th>   
+                         
+                        </tr>
+
+                        {% for x in var %}
+
+                        <tr>
+                            <td>{{x.food_name}}</td>
+                            <td>{{x.food_qty}}</td>
+                            <td>{{x.food_category}}</td>
+                            <td>{{x.stock}}</td>
+                            <td>{{x.date}}</td>
+                            <td>{{x.staff_id.name}}</td>
+                            <td><a href="/staff_edit_foodstock/?id={{x.id}}" class="btn btn-success">EDIT</a></td>
+                            
+
+                        </tr>
+                    	{% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

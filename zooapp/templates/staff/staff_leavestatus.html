@@ -1,0 +1,38 @@
+{% extends 'staff/staff_home.html' %}
+{% block body %}
+<div class="container" style="padding-top: 50px;">
+	
+<div class="d-flex flex-column text-center mb-5 pt-5">
+        <h1 class="display-4 m-0">Leave <span class="text-primary">Status</span></h1>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-8 mb-5">
+                <div class="contact-form">
+                    <div id="success"></div>
+                    <table border="0" class="table">
+                    	<tr>
+                         <th>Name</th> 
+                         <th>Email</th>
+                         <th>Reason</th>   
+                         <th>Date</th>  
+                         <th>Status</th>   
+                        </tr>
+
+                        {% for x in var %}
+
+                        <tr>
+                            <td>{{x.user_id.name}}</td>
+                            <td>{{x.user_id.email}}</td>
+                            <td>{{x.reason}}</td>
+                            <td>{{x.date}}</td>
+                            <td>{{x.status}}</td>
+
+                        </tr>
+                    	{% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

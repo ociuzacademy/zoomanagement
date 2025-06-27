@@ -1,0 +1,47 @@
+{% extends 'Food supplier/supplier_home.html' %}
+{% block body %}
+<div class="container" style="padding-top: 50px;">
+	
+<div class="d-flex flex-column text-center mb-5 pt-5">
+        <h1 class="display-4 m-0">View <span class="text-primary">Food Details</span></h1>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-12 mb-10">
+                <div class="contact-form">
+                    <div id="success"></div>
+                    <table border="0" class="table">
+                        <tr>
+                         <th>Needs</th> 
+                         <th>Quantity</th>
+                         <th>Food Details</th>
+
+                         <th>Date</th>   
+                         <th>Staff Name</th>  
+                         <th>Status</th>
+                         <th colspan="2"></th>   
+                         
+                        </tr>
+
+                        {% for x in var %}
+
+                        <tr>
+                            <td>{{x.needs}}</td>
+                            <td>{{x.food_qty}}</td>
+                            <td>{{x.food_id.id}},{{x.food_id.food_name}}<br>{{x.food_id.food_category}}</td>
+
+                            <td>{{x.date}}</td>
+                            <td>{{x.staff_id.name}}</td>
+                            <td>{{x.status}}</td>
+                            <td><a href="/supplier_accept_request/?id={{x.id}}" class="btn btn-success">Accept</a>
+                        <a href="/supplier_reject_request/?id={{x.id}}" class="btn btn-danger">Reject</a></td>
+                            
+
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

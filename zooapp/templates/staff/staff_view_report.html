@@ -1,0 +1,40 @@
+{% extends 'staff/staff_home.html' %}
+{% block body %}
+<div class="container" style="padding-top: 50px;">
+	
+<div class="d-flex flex-column text-center mb-5 pt-5">
+        <h1 class="display-4 m-0">View <span class="text-primary">Report</span></h1>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-8 mb-5">
+                <div class="contact-form">
+                    <div id="success"></div>
+                    <table border="0" class="table">
+                    	<tr>
+                         <th>Name</th> 
+                         <th>Email</th>
+                         <th>Report</th>   
+                         <th>Date</th>  
+                         <!-- <th>Status</th>    -->
+                         <th></th>
+                        </tr>
+
+                        {% for x in var %}
+
+                        <tr>
+                            <td>{{x.name}}</td>
+                            <td>{{x.email}}</td>
+                            <td>{{x.report}}</td>
+                            <td>{{x.date}}</td>
+                            <!-- <td>{{x.status}}</td> -->
+                            <td><a href="/staff_remove_report/?id={{x.id}}" class="btn btn-success">Remove</a></td>
+
+                        </tr>
+                    	{% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

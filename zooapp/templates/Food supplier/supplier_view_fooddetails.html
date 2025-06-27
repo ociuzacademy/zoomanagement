@@ -1,0 +1,76 @@
+{% extends 'Food supplier/supplier_home.html' %}
+{% block body %}
+<div class="container" style="padding-top: 50px;">
+	
+<div class="d-flex flex-column text-center mb-5 pt-5">
+        <h1 class="display-4 m-0">View <span class="text-primary">Food Details</span></h1>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-12 mb-10">
+                <div class="contact-form">
+                    <div id="success"></div>
+                    <table border="0" class="table">
+                    	<tr>
+                         <th>Food Name</th> 
+                         <th>Food Quantity</th>
+                         <th>Food Category</th>
+
+                         <th>Price</th>   
+                         <th>Date</th>
+                         <th>Supplier Name</th>  
+                         <th>Status</th> 
+                         <th></th>  
+                        </tr>
+
+                        {% for x in var %}
+
+                        <tr>
+                            <td>{{x.food_name}}</td>
+                            <td>{{x.food_qty}}</td>
+                            <td>{{x.food_category}}</td>
+
+                            <td>{{x.price}}</td>
+                            <td>{{x.date}}</td>
+                            <td>{{x.supplier_id.name}}</td>
+                            <td>{{x.status}}</td> 
+                            <td><a href="/supplier_complete_fooddetail/?id={{x.id}}" class="btn btn-success">completed</a></td> 
+
+                        </tr>
+                    	{% endfor %}
+                    </table>
+                    <br>
+                    <h1>Delivered Food Details</h1>
+                    <table border="0" class="table">
+                        <tr>
+                         <th>Food Name</th> 
+                         <th>Food Quantity</th>
+                         <th>Food Category</th>
+                         <th>Price</th>   
+                         <th>Date</th>
+                         <th>Supplier Name</th>  
+                         <th>Status</th> 
+                         <!-- <th></th>   -->
+                         
+                        </tr>
+
+                        {% for x in var2 %}
+
+                        <tr>
+                            <td>{{x.food_name}}</td>
+                            <td>{{x.food_qty}}</td>
+                            <td>{{x.food_category}}</td>
+                            <td>{{x.price}}</td>
+                            <td>{{x.date}}</td>
+                            <td>{{x.supplier_id.name}}</td>
+                            <td>{{x.status}}</td> 
+                            
+
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
